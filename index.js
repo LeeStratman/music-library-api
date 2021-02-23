@@ -13,6 +13,12 @@ app.get("/api/music", (req, res) => {
   return res.send(music);
 });
 
+app.get("/api/music/:id", (req, res) => {
+  const id = req.params.id;
+  const song = repoContext.songs.findSongById(id);
+  return res.send(song);
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
