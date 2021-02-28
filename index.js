@@ -23,7 +23,7 @@ app.get("/api/music/:id", (req, res) => {
 app.post("/api/music", [validateSong], (req, res) => {
   const song = req.body;
   const createSong = repoContext.songs.createSong(song);
-  return res.send(song);
+  return res.send(createSong);
 });
 
 app.put("/api/music/:id", [validateSong], (req, res) => {
